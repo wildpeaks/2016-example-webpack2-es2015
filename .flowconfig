@@ -1,0 +1,15 @@
+[ignore]
+
+[include]
+
+[libs]
+
+[options]
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/helpers/flow-css-stub.js'
+module.name_mapper='.*\.\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/helpers/flow-image-stub.js'
+module.file_ext=.js
+module.file_ext=.css
+module.file_ext=.svg
+module.file_ext=.png
+module.file_ext=.jpg
+module.file_ext=.gif
