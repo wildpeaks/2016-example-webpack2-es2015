@@ -1,6 +1,8 @@
 # Webpack for ES2015
 
-Sample project for **ES2015 web development** (including code coverage of ES Modules).
+Sample project for **ES2015 web development** (including code coverage of ES Modules), using **Webpack 2 beta**.
+
+See [wildpeaks/webpack1-es2015-boilerplate](https://github.com/wildpeaks/webpack1-es2015-boilerplate) for the *Webpack 1* version.
 
 
 ---

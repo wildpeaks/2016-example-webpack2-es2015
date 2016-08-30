@@ -3,39 +3,33 @@
 'use strict';
 const path = require('path');
 const webpack = require('webpack');
-const postcss_cssnext = require('postcss-cssnext');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const postcss_cssnext = require('postcss-cssnext');
 
-const debug = process.argv.indexOf('--debug') > -1;
-const minify = process.argv.indexOf('--minify') > -1;
-const environment = (process.argv.indexOf('--production') > -1) ? 'production' : 'development';
 
-let plugins = [
-	new webpack.DefinePlugin({
-		'process.env.NODE_ENV': JSON.stringify(environment)
-	})
-];
+module.exports = ({debug = false, minify = false, production = false} = {}) => {
+	const environment = production ? 'production' : 'development';
+	let plugins = [
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify(environment)
+		})
+	];
+	if (minify){
+		plugins = plugins.concat([
+			new webpack.optimize.UglifyJsPlugin({
+				sourceMap: true,
+				compress: {
+					warnings: false
+				},
+				output: {
+					comments: false
+				}
+			})
+		]);
+	}
 
-if (minify){
-	plugins = plugins.concat([
-		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin({
-			output: {
-				comments: false
-			},
-			compress: {
-				warnings: false
-			}
-		}),
-		new webpack.NoErrorsPlugin()
-	]);
-}
-
-module.exports = [
-	{
-		debug,
+	return {
 		target: 'web',
 		devtool: 'source-map',
 		entry: './src/application.js',
@@ -58,7 +52,18 @@ module.exports = [
 				},
 				{
 					test: /\.css$/,
-					loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules!postcss-loader')
+					loader: ExtractTextPlugin.extract({
+						fallbackLoader: 'style-loader',
+						loader: [
+							{
+								loader: 'css-loader',
+								query: {
+									modules: true
+								}
+							},
+							'postcss-loader'
+						]
+					})
 				},
 				{
 					test: /\.(jpg|png|gif|svg)$/,
@@ -76,11 +81,15 @@ module.exports = [
 			})
 		],
 		plugins: plugins.concat([
+			new webpack.LoaderOptionsPlugin({
+				debug,
+				minimize: minify
+			}),
 			new ExtractTextPlugin('application.min.css'),
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
 				template: path.join(__dirname, 'src/application.html')
 			})
 		])
-	}
-];
+	};
+};
