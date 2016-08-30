@@ -1,0 +1,27 @@
+
+* -text
+
+.editorconfig   text
+.gitattributes  text
+.gitignore      text
+.gitattributes  text
+.flowconfig     text
+LICENSE         text
+README          text
+*.txt           text
+*.md            text
+*.js            text
+*.jsx           text
+*.json          text
+*.css           text
+*.styl          text
+*.html          text
+*.php           text
+
+*.jpg           binary
+*.gif           binary
+*.png           binary
+*.svg           text
+*.mp4           binary
+*.ogv           binary
+*.webm          binary

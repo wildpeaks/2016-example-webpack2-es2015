@@ -1,0 +1,30 @@
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	color: #333;
+	background: #fafafa;
+	font-family: sans-serif;
+	font-size: 1em;
+	line-height: 2em;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-kerning: normal;
+	font-variant-ligatures: common-ligatures contextual;
+	-moz-font-feature-settings: kern, liga, clig, calt;
+	-ms-font-feature-settings: kern, liga, clig, calt;
+	-webkit-font-feature-settings: kern, liga, clig, calt;
+	font-feature-settings: kern, liga, clig, calt;
+}
