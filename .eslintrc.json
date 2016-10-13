@@ -27,7 +27,7 @@
 		"flowtype/define-flow-type": 1,
 		"flowtype/require-parameter-type": 1,
 		"flowtype/require-return-type": ["error", "always", {
-			"excludeArrowFunctions": "expressionsOnly",
+			"excludeArrowFunctions": true,
 			"annotateUndefined": "always"
 		}],
 		"flowtype/space-after-type-colon": [1, "always"],
@@ -188,7 +188,7 @@
 		"no-lonely-if": "error",
 		"no-mixed-operators": "error",
 		"no-mixed-spaces-and-tabs": "error",
-		"no-multiple-empty-lines": ["error", {"max": 2, "maxEOF": 1, "maxBOF": 0}],
+		"no-multiple-empty-lines": ["error", {"max": 2, "maxEOF": 1, "maxBOF": 1}],
 		"no-negated-condition": 0,
 		"no-nested-ternary": "error",
 		"no-new-object": "error",
@@ -208,7 +208,7 @@
 		"operator-assignment": ["error", "always"],
 		"operator-linebreak": ["error", "before"],
 		"padded-blocks": ["error", "never"],
-		"quote-props": ["error", "consistent-as-needed"],
+		"quote-props": ["error", "as-needed"],
 		"quotes": [2, "single", {"allowTemplateLiterals": true}],
 		"semi": ["error", "always"],
 		"semi-spacing": ["error", {"before": false, "after": true}],
@@ -216,7 +216,7 @@
 		"space-before-blocks": ["error", {
 			"functions": "always",
 			"keywords": "never",
-			"classes": "never"
+			"classes": "always"
 		}],
 		"space-before-function-paren": ["error", "never"],
 		"space-in-parens": ["error", "never"],
