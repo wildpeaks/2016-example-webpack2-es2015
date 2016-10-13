@@ -17,12 +17,12 @@
 !.gitattributes
 !.gitignore
 !README.md
-
 !/src
-!/helpers
+!/flow-libs
 !/package.json
-!/mocha-babel-hook.js
-!/nyc-babel-hook.js
+!/prerender.js
+!/register.js
+!/babel.config.js
 !/webpack.config.js
 
 
@@ -31,3 +31,4 @@
 #-----------------------------------------------------------------------------#
 
 .DS_Store
+Thumbs.db
