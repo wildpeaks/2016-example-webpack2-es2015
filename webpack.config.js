@@ -77,7 +77,7 @@ module.exports = ({debug = false, minify = false} = {}) => ({
 				include: [
 					path.resolve(__dirname, 'src')
 				],
-				loader: 'babel',
+				loader: 'babel-loader',
 				query: getBabelConfig({
 					webpack: true
 				})
@@ -85,15 +85,15 @@ module.exports = ({debug = false, minify = false} = {}) => ({
 			{
 				test: /\.css$/,
 				loader: ExtractTextPlugin.extract({
-					fallbackLoader: 'style',
+					fallbackLoader: 'style-loader',
 					loader: [
 						{
-							loader: 'css',
+							loader: 'css-loader',
 							query: {
 								modules: true
 							}
 						},
-						'postcss'
+						'postcss-loader'
 					]
 				})
 			},
@@ -101,7 +101,7 @@ module.exports = ({debug = false, minify = false} = {}) => ({
 				test: /\.(jpg|png|gif|svg)$/,
 				loader: [
 					{
-						loader: 'url',
+						loader: 'url-loader',
 						query: {
 							limit: 2000,
 							name: 'assets/[name].[ext]'
@@ -113,7 +113,7 @@ module.exports = ({debug = false, minify = false} = {}) => ({
 				test: /\.(ico|woff)$/,
 				loader: [
 					{
-						loader: 'url',
+						loader: 'url-loader',
 						query: {
 							limit: 1,
 							name: 'assets/[name].[ext]'
