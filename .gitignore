@@ -17,6 +17,7 @@
 !.gitattributes
 !.gitignore
 !README.md
+!yarn.lock
 !/src
 !/flow-libs
 !/package.json
